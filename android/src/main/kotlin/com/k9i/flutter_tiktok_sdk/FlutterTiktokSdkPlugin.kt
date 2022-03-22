@@ -96,14 +96,15 @@ class FlutterTiktokSdkPlugin: FlutterPlugin, MethodCallHandler, ActivityAware, P
   }
 
   private fun bindActivityBinding(binding: ActivityPluginBinding) {
-    this.activity = binding.activity
-    this.activityPluginBinding = binding
+    activity = binding.activity
+    activityPluginBinding = binding
     binding.addOnNewIntentListener(this);
   }
 
   private fun unbindActivityBinding() {
-    this.activity = null
-    this.activityPluginBinding = null
+    activityPluginBinding?.removeOnNewIntentListener(this)
+    activity = null
+    activityPluginBinding = null
   }
 
   override fun onNewIntent(intent: Intent): Boolean {
