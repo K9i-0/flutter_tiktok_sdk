@@ -2,10 +2,14 @@
 
 * initial release.
 
-## 0.1.0
+## 0.0.2
 
 * fix iOS setup
 
 ## 0.1.0
 
 * fix iOS real device bug
+
+## 0.1.1
+
+* chore
