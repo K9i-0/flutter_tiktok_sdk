@@ -3,7 +3,6 @@ package com.k9i.flutter_tiktok_sdk
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import com.bytedance.sdk.open.tiktok.TikTokOpenApiFactory
 import com.bytedance.sdk.open.tiktok.api.TikTokOpenApi
 import com.bytedance.sdk.open.tiktok.authorize.model.Authorization
@@ -11,7 +10,7 @@ import com.bytedance.sdk.open.tiktok.common.handler.IApiEventHandler
 import com.bytedance.sdk.open.tiktok.common.model.BaseReq
 import com.bytedance.sdk.open.tiktok.common.model.BaseResp
 
-// TikTok Sdkからのコールバックを受け付けるActivity
+// Activity receiving callbacks from TikTok Sdk
 class TikTokEntryActivity : Activity(), IApiEventHandler {
     private lateinit var tikTokOpenApi: TikTokOpenApi
 
@@ -34,7 +33,6 @@ class TikTokEntryActivity : Activity(), IApiEventHandler {
             launchIntent.putExtra(TIKTOK_LOGIN_RESULT_SUCCESS, resp.isSuccess)
             launchIntent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
             if (resp.isSuccess) {
-                // 認証コードを返す
                 launchIntent.putExtra(TIKTOK_LOGIN_RESULT_AUTH_CODE, resp.authCode)
             } else {
                 launchIntent.putExtra(TIKTOK_LOGIN_RESULT_CANCEL, resp.isCancel)
@@ -44,7 +42,7 @@ class TikTokEntryActivity : Activity(), IApiEventHandler {
             startActivity(launchIntent)
             finish()
         } else {
-            // 未実装だが認証以外のレスポンスが来た時ここに来る、finishしてMainActivityに戻る
+            // TODO Video Kit Implementation
             finish()
         }
     }

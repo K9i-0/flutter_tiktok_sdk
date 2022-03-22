@@ -2,16 +2,11 @@ package com.k9i.flutter_tiktok_sdk
 
 import android.app.Activity
 import android.content.Intent
-import android.util.Log
 import androidx.annotation.NonNull
 import com.bytedance.sdk.open.tiktok.TikTokOpenApiFactory
 import com.bytedance.sdk.open.tiktok.TikTokOpenConfig
 import com.bytedance.sdk.open.tiktok.api.TikTokOpenApi
 import com.bytedance.sdk.open.tiktok.authorize.model.Authorization
-import com.bytedance.sdk.open.tiktok.common.handler.IApiEventHandler
-import com.bytedance.sdk.open.tiktok.common.model.BaseReq
-import com.bytedance.sdk.open.tiktok.common.model.BaseResp
-
 import io.flutter.embedding.engine.plugins.FlutterPlugin
 import io.flutter.embedding.engine.plugins.activity.ActivityAware
 import io.flutter.embedding.engine.plugins.activity.ActivityPluginBinding
@@ -110,11 +105,11 @@ class FlutterTiktokSdkPlugin: FlutterPlugin, MethodCallHandler, ActivityAware, P
   override fun onNewIntent(intent: Intent): Boolean {
     val isSuccess = intent.getBooleanExtra(TikTokEntryActivity.TIKTOK_LOGIN_RESULT_SUCCESS, false)
     if (isSuccess) {
-      // 認証成功時は認証コードを返す
+      // Returns an authentication code upon successful authentication
       val authorizationCode = intent.getStringExtra(TikTokEntryActivity.TIKTOK_LOGIN_RESULT_AUTH_CODE)
       loginResult?.success(authorizationCode)
     } else {
-      // 認証失敗時はエラーを返す
+      // Returns an error if authentication fails
       val errorCode = intent.getIntExtra(TikTokEntryActivity.TIKTOK_LOGIN_RESULT_ERROR_CODE, -999)
       val errorMessage = intent.getStringExtra(TikTokEntryActivity.TIKTOK_LOGIN_RESULT_ERROR_MSG);
       loginResult?.error(
