@@ -22,31 +22,11 @@ public class SwiftFlutterTiktokSdkPlugin: NSObject, FlutterPlugin {
     }
   }
   
-  public func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
-    
-    guard let sourceApplication = options[UIApplication.OpenURLOptionsKey.sourceApplication] as? String,
-          let annotation = options[UIApplication.OpenURLOptionsKey.annotation] else {
+  public func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any]) -> Bool {
+      if TikTokOpenSDKApplicationDelegate.sharedInstance().application(app, open: url, sourceApplication: nil, annotation: "") {
+          return true
+      }
       return false
-    }
-    
-    if TikTokOpenSDKApplicationDelegate.sharedInstance().application(app, open: url, sourceApplication: sourceApplication, annotation: annotation) {
-      return true
-    }
-    return false
-  }
-  
-  public func application(_ application: UIApplication, open url: URL, sourceApplication: String, annotation: Any) -> Bool {
-    if TikTokOpenSDKApplicationDelegate.sharedInstance().application(application, open: url, sourceApplication: sourceApplication, annotation: annotation) {
-      return true
-    }
-    return false
-  }
-  
-  public func application(_ application: UIApplication, handleOpen url: URL) -> Bool {
-    if TikTokOpenSDKApplicationDelegate.sharedInstance().application(application, open: url, sourceApplication: nil, annotation: "") {
-      return true
-    }
-    return false
   }
   
   func login(_ call: FlutterMethodCall, result: @escaping FlutterResult) {
