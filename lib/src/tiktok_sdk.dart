@@ -8,6 +8,11 @@ class TikTokSDK {
 
   TikTokSDK._();
 
+  /// setup TikTokSDK
+  /// Must be called only on Android.
+  ///
+  /// [clientKey] It is issued when you register your app on TikTok for developers.
+  /// https://developers.tiktok.com/
   Future<void> setup({required String clientKey}) async {
     if (Platform.isIOS) {
       return;
@@ -21,7 +26,10 @@ class TikTokSDK {
     );
   }
 
-  Future<TikTokAuthResult> login({
+  /// login TikTok
+  ///
+  /// [permissionType] You must apply for permissions at the time of app registration.
+  Future<TikTokLoginResult> login({
     required Set<TikTokPermissionType> permissions,
     String? state,
   }) async {
@@ -37,20 +45,21 @@ class TikTokSDK {
       );
 
       if (authCode != null) {
-        return TikTokAuthResult(
-          status: TikTokAuthStatus.success,
+        return TikTokLoginResult(
+          status: TikTokLoginStatus.success,
           authCode: authCode,
         );
       } else {
-        return const TikTokAuthResult(
-          status: TikTokAuthStatus.error,
+        return const TikTokLoginResult(
+          status: TikTokLoginStatus.error,
         );
       }
     } on PlatformException catch (e) {
-      final status =
-          e.code == "-2" ? TikTokAuthStatus.cancelled : TikTokAuthStatus.error;
+      final status = e.code == "-2"
+          ? TikTokLoginStatus.cancelled
+          : TikTokLoginStatus.error;
 
-      return TikTokAuthResult(
+      return TikTokLoginResult(
         status: status,
         errorCode: e.code,
         errorMessage: e.message,
