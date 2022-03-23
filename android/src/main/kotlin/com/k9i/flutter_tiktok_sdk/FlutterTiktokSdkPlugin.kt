@@ -106,8 +106,12 @@ class FlutterTiktokSdkPlugin: FlutterPlugin, MethodCallHandler, ActivityAware, P
     val isSuccess = intent.getBooleanExtra(TikTokEntryActivity.TIKTOK_LOGIN_RESULT_SUCCESS, false)
     if (isSuccess) {
       // Returns an authentication code upon successful authentication
-      val authorizationCode = intent.getStringExtra(TikTokEntryActivity.TIKTOK_LOGIN_RESULT_AUTH_CODE)
-      loginResult?.success(authorizationCode)
+      val resultMap = mapOf(
+        "authCode" to intent.getStringExtra(TikTokEntryActivity.TIKTOK_LOGIN_RESULT_AUTH_CODE),
+        "state" to intent.getStringExtra(TikTokEntryActivity.TIKTOK_LOGIN_RESULT_STATE),
+        "grantedPermissions" to intent.getStringExtra(TikTokEntryActivity.TIKTOK_LOGIN_RESULT_GRANTED_PERMISSIONS),
+      )
+      loginResult?.success(resultMap)
     } else {
       // Returns an error if authentication fails
       val errorCode = intent.getIntExtra(TikTokEntryActivity.TIKTOK_LOGIN_RESULT_ERROR_CODE, -999)

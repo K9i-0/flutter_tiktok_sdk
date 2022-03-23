@@ -21,3 +21,18 @@ extension TikTokPermissionTypeEx on TikTokPermissionType {
     }
   }
 }
+
+TikTokPermissionType? _fromScopeName(String scopeName) {
+  switch (scopeName) {
+    case 'user.info.basic':
+      return TikTokPermissionType.userInfoBasic;
+    case 'share.sound.create':
+      return TikTokPermissionType.shareSoundCreate;
+    case 'video.list':
+      return TikTokPermissionType.videoList;
+    case 'video.upload':
+      return TikTokPermissionType.videoUpload;
+    default:
+      return null;
+  }
+}

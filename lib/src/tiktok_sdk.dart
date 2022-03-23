@@ -36,7 +36,7 @@ class TikTokSDK {
     try {
       final scope =
           permissions.map((permission) => permission.scopeName).join(',');
-      final authCode = await _channel.invokeMethod<String>(
+      final result = await _channel.invokeMapMethod<String, Object>(
         'login',
         <String, dynamic>{
           'scope': scope,
@@ -44,10 +44,19 @@ class TikTokSDK {
         },
       );
 
-      if (authCode != null) {
+      if (result != null) {
+        final grantedPermissionsStringList =
+            (result['grantedPermissions'] as String).split(',');
+        final grantedPermissions = grantedPermissionsStringList
+            .map((permission) => _fromScopeName(permission))
+            .whereType<TikTokPermissionType>()
+            .toSet();
+
         return TikTokLoginResult(
           status: TikTokLoginStatus.success,
-          authCode: authCode,
+          authCode: result["authCode"] as String,
+          state: result["state"] as String,
+          grantedPermissions: grantedPermissions,
         );
       } else {
         return const TikTokLoginResult(
