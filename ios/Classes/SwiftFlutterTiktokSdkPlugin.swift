@@ -52,8 +52,13 @@ public class SwiftFlutterTiktokSdkPlugin: NSObject, FlutterPlugin {
     
     request.send(rootViewController, completion: { (resp : TikTokOpenSDKAuthResponse) -> Void in
       if resp.isSucceed {
-        let authorizationCode = resp.code
-        result(authorizationCode)
+        let resultMap: Dictionary<String,String?> = [
+          "authCode": resp.code,
+          "state": resp.state,
+          "grantedPermissions": (resp.grantedPermissions?.array as? [String])?.joined(separator: ","),
+        ]
+        
+        result(resultMap)
       } else {
         result(FlutterError(
           code: String(resp.errCode.rawValue),

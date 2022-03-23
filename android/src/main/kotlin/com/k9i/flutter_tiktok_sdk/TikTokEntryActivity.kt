@@ -34,6 +34,8 @@ class TikTokEntryActivity : Activity(), IApiEventHandler {
             launchIntent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
             if (resp.isSuccess) {
                 launchIntent.putExtra(TIKTOK_LOGIN_RESULT_AUTH_CODE, resp.authCode)
+                launchIntent.putExtra(TIKTOK_LOGIN_RESULT_STATE, resp.state)
+                launchIntent.putExtra(TIKTOK_LOGIN_RESULT_GRANTED_PERMISSIONS, resp.grantedPermissions)
             } else {
                 launchIntent.putExtra(TIKTOK_LOGIN_RESULT_CANCEL, resp.isCancel)
                 launchIntent.putExtra(TIKTOK_LOGIN_RESULT_ERROR_CODE, resp.errorCode)
@@ -55,6 +57,8 @@ class TikTokEntryActivity : Activity(), IApiEventHandler {
         const val TIKTOK_LOGIN_RESULT_SUCCESS = "TIKTOK_LOGIN_RESULT_SUCCESS"
         const val TIKTOK_LOGIN_RESULT_CANCEL = "TIKTOK_LOGIN_RESULT_CANCEL"
         const val TIKTOK_LOGIN_RESULT_AUTH_CODE = "TIKTOK_LOGIN_RESULT_AUTH_CODE"
+        const val TIKTOK_LOGIN_RESULT_STATE = "TIKTOK_LOGIN_RESULT_STATE"
+        const val TIKTOK_LOGIN_RESULT_GRANTED_PERMISSIONS = "TIKTOK_LOGIN_RESULT_GRANTED_PERMISSIONS"
         const val TIKTOK_LOGIN_RESULT_ERROR_CODE = "TIKTOK_LOGIN_RESULT_ERROR_CODE"
         const val TIKTOK_LOGIN_RESULT_ERROR_MSG = "TIKTOK_LOGIN_RESULT_ERROR_MSG"
     }

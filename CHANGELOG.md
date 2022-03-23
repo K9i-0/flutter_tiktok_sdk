@@ -13,3 +13,7 @@
 ## 0.1.1
 
 * chore
+
+## 0.2.0
+
+* Add state and grantedPermissions fields to TikTokLoginResult
