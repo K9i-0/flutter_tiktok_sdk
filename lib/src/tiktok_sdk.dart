@@ -1,9 +1,11 @@
 part of '../flutter_tiktok_sdk.dart';
 
+/// manager for TikTok SDK all features
 class TikTokSDK {
   static const MethodChannel _channel =
       MethodChannel('com.k9i/flutter_tiktok_sdk');
 
+  /// singleton object of TikTokSDK
   static final TikTokSDK instance = TikTokSDK._();
 
   TikTokSDK._();
