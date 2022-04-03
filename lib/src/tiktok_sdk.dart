@@ -1,9 +1,11 @@
 part of '../flutter_tiktok_sdk.dart';
 
+/// manager for TikTok SDK all features
 class TikTokSDK {
   static const MethodChannel _channel =
       MethodChannel('com.k9i/flutter_tiktok_sdk');
 
+  /// singleton object of TikTokSDK
   static final TikTokSDK instance = TikTokSDK._();
 
   TikTokSDK._();
@@ -55,7 +57,7 @@ class TikTokSDK {
         return TikTokLoginResult(
           status: TikTokLoginStatus.success,
           authCode: result["authCode"] as String,
-          state: result["state"] as String,
+          state: result["state"] as String?,
           grantedPermissions: grantedPermissions,
         );
       } else {
