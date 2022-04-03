@@ -17,3 +17,8 @@
 ## 0.2.0
 
 * Add state and grantedPermissions fields to TikTokLoginResult
+
+## 0.2.1
+
+* Add Dartdoc
+* Change state to nullable
