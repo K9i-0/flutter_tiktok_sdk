@@ -7,9 +7,20 @@ void main() {
 
   TestWidgetsFlutterBinding.ensureInitialized();
 
+  const dummyTikTokLoginResult = {
+    "authCode": "authCode",
+    "grantedPermissions":
+        "user.info.basic,share.sound.create,video.list,video.upload",
+  };
+
   setUp(() {
     channel.setMockMethodCallHandler((MethodCall methodCall) async {
-      return '42';
+      switch (methodCall.method) {
+        case 'setup':
+          return null;
+        case 'login':
+          return dummyTikTokLoginResult;
+      }
     });
   });
 
@@ -17,7 +28,16 @@ void main() {
     channel.setMockMethodCallHandler(null);
   });
 
-  test('getPlatformVersion', () async {
-    // expect(await TikTokSDK.platformVersion, '42');
+  test('setup', () async {
+    await TikTokSDK.instance.setup(clientKey: 'clientKey');
+  });
+
+  test('login', () async {
+    final result = await TikTokSDK.instance
+        .login(permissions: TikTokPermissionType.values.toSet());
+    expect(result.status, TikTokLoginStatus.success);
+    expect(result.state, null);
+    expect(result.authCode, 'authCode');
+    expect(result.grantedPermissions, TikTokPermissionType.values.toSet());
   });
 }
