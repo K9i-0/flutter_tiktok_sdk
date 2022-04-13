@@ -22,3 +22,7 @@
 
 * Add Dartdoc
 * Change state to nullable
+
+## 0.2.2
+
+* Update iOS sdk version to 5.0.13
