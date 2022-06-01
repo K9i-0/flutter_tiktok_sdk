@@ -4,10 +4,8 @@ enum TikTokPermissionType {
   userInfoBasic,
   shareSoundCreate,
   videoList,
-  videoUpload,
-}
+  videoUpload;
 
-extension TikTokPermissionTypeEx on TikTokPermissionType {
   String get scopeName {
     switch (this) {
       case TikTokPermissionType.userInfoBasic:
