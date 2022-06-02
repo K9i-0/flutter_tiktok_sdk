@@ -26,3 +26,9 @@
 ## 0.2.2
 
 * Update iOS sdk version to 5.0.13
+
+## 0.2.3
+
+* Update flutter version to 3.0.0
+* Update iOS sdk version to 5.0.14
+* Remove old scope(share.sound.create)
