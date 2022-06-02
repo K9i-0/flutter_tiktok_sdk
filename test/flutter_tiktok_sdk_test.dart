@@ -7,10 +7,10 @@ void main() {
 
   TestWidgetsFlutterBinding.ensureInitialized();
 
-  const dummyTikTokLoginResult = {
+  final dummyTikTokLoginResult = {
     "authCode": "authCode",
     "grantedPermissions":
-        "user.info.basi,video.list,video.upload",
+        TikTokPermissionType.values.map((e) => e.scopeName).join(','),
   };
 
   setUp(() {
