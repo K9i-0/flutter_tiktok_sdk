@@ -1,23 +1,14 @@
 part of '../flutter_tiktok_sdk.dart';
 
 enum TikTokPermissionType {
-  userInfoBasic,
-  shareSoundCreate,
-  videoList,
-  videoUpload;
+  userInfoBasic('user.info.basic'),
+  shareSoundCreate('share.sound.create'),
+  videoList('video.list'),
+  videoUpload('video.upload');
 
-  String get scopeName {
-    switch (this) {
-      case TikTokPermissionType.userInfoBasic:
-        return 'user.info.basic';
-      case TikTokPermissionType.shareSoundCreate:
-        return 'share.sound.create';
-      case TikTokPermissionType.videoList:
-        return 'video.list';
-      case TikTokPermissionType.videoUpload:
-        return 'video.upload';
-    }
-  }
+  final String scopeName;
+
+  const TikTokPermissionType(this.scopeName);
 }
 
 TikTokPermissionType? _fromScopeName(String scopeName) {
