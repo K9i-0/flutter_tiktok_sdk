@@ -4,7 +4,7 @@
 #
 Pod::Spec.new do |s|
   s.name             = 'flutter_tiktok_sdk'
-  s.version          = '0.2.2'
+  s.version          = '0.2.3'
   s.summary          = 'A new flutter plugin project.'
   s.description      = <<-DESC
 A new flutter plugin project.
@@ -16,7 +16,7 @@ A new flutter plugin project.
   s.source_files = 'Classes/**/*'
   s.dependency 'Flutter'
 
-  s.dependency 'TikTokOpenSDK', '~> 5.0.13'
+  s.dependency 'TikTokOpenSDK', '~> 5.0.14'
   s.platform = :ios, '9.3'
   s.static_framework = true
 
