@@ -10,7 +10,7 @@ void main() {
   const dummyTikTokLoginResult = {
     "authCode": "authCode",
     "grantedPermissions":
-        "user.info.basic,share.sound.create,video.list,video.upload",
+        "user.info.basi,video.list,video.upload",
   };
 
   setUp(() {
