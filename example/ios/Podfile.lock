@@ -1,6 +1,6 @@
 PODS:
   - Flutter (1.0.0)
-  - flutter_tiktok_sdk (0.2.3):
+  - flutter_tiktok_sdk (0.2.4):
     - Flutter
     - TikTokOpenSDK (~> 5.0.14)
   - TikTokOpenSDK (5.0.14)
@@ -21,7 +21,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   Flutter: f04841e97a9d0b0a8025694d0796dd46242b2854
-  flutter_tiktok_sdk: be492d41b984784b5cf3b6256ef1739d630e97d2
+  flutter_tiktok_sdk: 5c0421fbc84ff0a2882c54855fd8a3aec180832f
   TikTokOpenSDK: 28f5244497b87cbaebb36d7ad468374ad2c2e8e2
 
 PODFILE CHECKSUM: ea66bdfa6e44fa9a7fb6e6def72d8b5a6f56fd90
