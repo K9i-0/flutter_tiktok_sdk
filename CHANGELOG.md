@@ -1,34 +1,37 @@
-## 0.0.1
+# 0.2.4
+- Update flutter version to 3.3.7
+- Update Android sdk version to 0.2.1.0
 
-* initial release.
+# 0.2.3
 
-## 0.0.2
+- Update flutter version to 3.0.0
+- Update iOS sdk version to 5.0.14
+- Remove old scope(share.sound.create)
 
-* fix iOS setup
+# 0.2.2
 
-## 0.1.0
+- Update iOS sdk version to 5.0.13
+# 0.2.1
 
-* fix iOS real device bug
+- Add Dartdoc
+- Change state to nullable
 
-## 0.1.1
+# 0.2.0
 
-* chore
+- Add state and grantedPermissions fields to TikTokLoginResult
 
-## 0.2.0
+# 0.1.1
 
-* Add state and grantedPermissions fields to TikTokLoginResult
+- chore
 
-## 0.2.1
+# 0.1.0
 
-* Add Dartdoc
-* Change state to nullable
+- fix iOS real device bug
 
-## 0.2.2
+# 0.0.2
 
-* Update iOS sdk version to 5.0.13
+- fix iOS setup
 
-## 0.2.3
+# 0.0.1
 
-* Update flutter version to 3.0.0
-* Update iOS sdk version to 5.0.14
-* Remove old scope(share.sound.create)
+- initial release.
