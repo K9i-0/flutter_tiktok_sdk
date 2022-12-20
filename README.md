@@ -2,7 +2,7 @@
 
 A Flutter plugin that lets developers access TikTok's native SDKs in Flutter apps with Dart
 
-Native SDK documentation 👉 https://developers.tiktok.com/doc
+Native SDK documentation 👉 https://developers.tiktok.com/doc/getting-started-create-an-app/
 
 # iOS Configuration
 Go to https://developers.tiktok.com/doc/getting-started-ios-quickstart-swift
