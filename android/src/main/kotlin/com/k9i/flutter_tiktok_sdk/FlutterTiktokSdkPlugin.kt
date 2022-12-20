@@ -50,6 +50,7 @@ class FlutterTiktokSdkPlugin: FlutterPlugin, MethodCallHandler, ActivityAware, P
         val clientKey = call.argument<String?>("clientKey")
         TikTokOpenApiFactory.init(TikTokOpenConfig(clientKey))
         tikTokOpenApi = TikTokOpenApiFactory.create(activity)
+        result.success(null)
       }
       "login" -> {
         val request = Authorization.Request()
