@@ -1,6 +1,6 @@
 PODS:
   - Flutter (1.0.0)
-  - flutter_tiktok_sdk (0.2.4):
+  - flutter_tiktok_sdk (0.2.5):
     - Flutter
     - TikTokOpenSDK (~> 5.0.14)
   - TikTokOpenSDK (5.0.14)
