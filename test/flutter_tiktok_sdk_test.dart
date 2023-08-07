@@ -14,18 +14,27 @@ void main() {
   };
 
   setUp(() {
-    channel.setMockMethodCallHandler((MethodCall methodCall) async {
-      switch (methodCall.method) {
-        case 'setup':
-          return null;
-        case 'login':
-          return dummyTikTokLoginResult;
-      }
-    });
+    TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
+        .setMockMethodCallHandler(
+      channel,
+      (MethodCall methodCall) async {
+        switch (methodCall.method) {
+          case 'setup':
+            return null;
+          case 'login':
+            return dummyTikTokLoginResult;
+        }
+        return null;
+      },
+    );
   });
 
   tearDown(() {
-    channel.setMockMethodCallHandler(null);
+    TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
+        .setMockMethodCallHandler(
+      channel,
+      null,
+    );
   });
 
   test('setup', () async {
