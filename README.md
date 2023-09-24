@@ -82,3 +82,5 @@ See the example directory for a complete sample app using flutter_tiktok_sdk.
 # Maintenance Status of this Repository
 This package was originally developed when I needed TikTok authentication for an application at my previous job. However, since I've changed jobs, I no longer have a use for the TikTok SDK. As such, my motivation to proactively add new features has decreased. That said, I'm open to reviewing pull requests if anyone wishes to contribute.
 
+Additionally, if someone with high motivation wishes to fork this repository and develop a successor package (e.g., flutter_tiktok_sdk_plus), you are more than welcome. Should that happen, I will take measures to ensure that users are aware of the successor package.
+
